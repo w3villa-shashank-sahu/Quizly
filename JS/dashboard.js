@@ -11,14 +11,16 @@ export const totalQuestion = 10;
 let timeLeft = totalTime;
 let isloading = false;
 let isAnswered = false;
-var score = [0, 0, 0];
+let score = [0, 0, 0];
 
-var btn1 = document.getElementById("option1");
-var btn2 = document.getElementById("option2");
-var btn3 = document.getElementById("option3");
-var btn4 = document.getElementById("option4");
-var nextBtn = document.getElementById("nextBtn");
-var explain = document.getElementById("explaination");
+let btn1 = document.getElementById("option1");
+let btn2 = document.getElementById("option2");
+let btn3 = document.getElementById("option3");
+let btn4 = document.getElementById("option4");
+let howToButton = document.getElementById('rules-button')
+let startButton = document.getElementById("start-quiz");
+let nextBtn = document.getElementById("nextBtn");
+let explain = document.getElementById("explaination");
 let timerElement = document.getElementById("timer");
 let progressBar = document.getElementById("progress-bar");
 let questionCount = document.getElementById("question-number");
@@ -26,6 +28,24 @@ let gamePage = document.getElementById('game-page')
 let landingPage = document.getElementById('landing-page')
 let resultPage = document.getElementById('result-page')
 let Questions = [];
+
+howToButton.addEventListener('click', () => {
+    createModal('How to play', 
+    `You will get ${totalQuestion} question on the topic of your choice.
+
+    Step1: Enter a topic of your choice. eg: Cars.
+    Step2: Click on the "Let's Go" button to start the quiz.
+    Step3: Answer each question by clicking on one of the four option available.
+    Step4: See your result in the End.
+    
+
+    Rules:
+
+        1. You will get ${totalTime}s to answer each question
+        2. If the timer runs out, your current question will be skipped.
+        
+    `)
+})
 
 // Fetch all questions at once
 async function fetchAllQuestions(topic) {
@@ -161,10 +181,6 @@ function updateTimer() {
 }
 
 function startTimer(){
-    // if(timer != null){
-    //     return;
-    // }
-    // console.log('created timer');
     timerElement.textContent = timeLeft + "s"
     timer = setInterval(updateTimer, 1000);
 }
@@ -228,7 +244,7 @@ function showRes() {
     // resultPage.classList.add('fadein')
 }
 
-const startButton = document.getElementById("start-quiz");
+
 startButton.addEventListener("click", async () => {
     if(isloading)   return;
     isloading = true
