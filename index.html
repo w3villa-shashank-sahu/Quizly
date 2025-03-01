@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "./styles/global.css">
+    <link rel = "stylesheet" href = "./styles/landingPage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Quizly</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="main">
+        <div class="row wrapper" id="landing-page">
+            <div class="left-section">
+                <h1>Quizly</h1>
+                <p>Generate personalized quizzes on any topic you desire. Test your knowledge and learn something new!</p>
+                <button id="rules-button">How to Play?</button>
+            </div>
+            <div class="right-section">
+                <h2>Enter Quiz Topic</h2>
+                <input type="text" id="topic-input" placeholder="type here">
+                <button id="start-quiz">Let's Go!</button>
+            </div>
+        </div>
+        <div class="col wrapper" id="game-page">
+            <!-- Timer -->
+            <div class="timer" id="timer"></div>
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            <!-- Quiz Container -->
+            <div class="quiz-container">
+                <div id="question">
+                    What is the main product that Apple Inc. is known for?
+                </div>
+                <div class="options">
+                    <button id="option1" class="option-btn">Software</button>
+                    <button id="option2" class="option-btn">Furniture</button>
+                    <button id="option3" class="option-btn">Clothing</button>
+                    <button id="option4" class="option-btn">Hardware</button>
+                </div>
+            </div>
+            <div id="question-number">1 out of 10</div>
+            <button id="nextBtn">Next</button>
+            <div id="explaination">
+                <h2>Explaination</h2>
+                <p id="content">lorem*2</p>
+            </div>
+        </div>
+        <div class="result wrapper" id="result-page">
+            <div id="result-display">Score: 5 / 10</div>
+            <div id="remark">Excellent</div>
+            <div class="chart-container">
+                <canvas class="chart"></canvas>
+            </div>
+            <button id="try-again">Try Again?</button>
+        </div>
+    </div>
+    <script type="module" src="./JS/myChart.js" ></script>
+    <script type="module" src="./JS/modal.js"></script>
+    <script type="module" src="./JS/dashboard.js"></script>
+    <script type="module" src="./JS/data.js"></script>
+</body>
+</html>
