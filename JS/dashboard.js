@@ -27,6 +27,7 @@ let questionCount = document.getElementById("question-number");
 let gamePage = document.getElementById('game-page')
 let landingPage = document.getElementById('landing-page')
 let resultPage = document.getElementById('result-page')
+let remark = document.getElementById('remark')
 let Questions = [];
 
 howToButton.addEventListener('click', () => {
@@ -240,6 +241,16 @@ function showNextQues(){
 function showRes() {
     gamePage.style.display = "none";
     resultPage.style.display = "flex";
+    let percent = score[0] / totalQuestion;
+    if(percent > 90)
+        remark.textContent = 'You are a Genius!'
+    else if (percent > 60)
+        remark.textContent = 'You are doing Great!, Keep trying'
+    else if(percent > 40)
+        remark.textContent = 'You can definitly do better than this'
+    else
+        remark.textContent = 'Sorry, You need a lot of practice'
+
     createChart(score);
     // resultPage.classList.add('fadein')
 }
